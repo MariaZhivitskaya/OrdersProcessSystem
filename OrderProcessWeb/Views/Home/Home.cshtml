@@ -1,0 +1,27 @@
+﻿@model OrderProcessWeb.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "My profile";
+}
+
+<h2>Home</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Login:</dt>
+        <dd>@Model.Login</dd>
+        <dt>Name:</dt>
+        <dd>@Model.Name</dd>
+        <dt>Surname:</dt>
+        <dd>@Model.Surname</dd>
+        <dt>Role:</dt>
+        <dd>
+           @Html.BeginForm("GetRole", "Home", new { roleId = @Model.RoleId }, FormMethod.Post, null)
+         </dd >
+
+        @*@if (Model.RoleId.Equals(1))
+        {
+            @Html.Action("Users", "Home")
+        }*@
+    </dl>
+</div>

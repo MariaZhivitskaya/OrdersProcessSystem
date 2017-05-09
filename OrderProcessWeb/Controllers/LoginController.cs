@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using BLL.Interfaces;
@@ -11,11 +8,11 @@ using OrderProcessWeb.ViewModels;
 namespace OrderProcessWeb.Controllers
 {
     [Authorize]
-    public class UsersController : Controller
+    public class LoginController : Controller
     {
         private readonly IUserService userService;
 
-        public UsersController(IUserService userService)
+        public LoginController(IUserService userService)
         {
             this.userService = userService;
         }
@@ -23,8 +20,8 @@ namespace OrderProcessWeb.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            var type = HttpContext.User.GetType();
-            var iden = HttpContext.User.Identity.GetType();
+            //var type = HttpContext.User.GetType();
+            //var iden = HttpContext.User.Identity.GetType();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -55,7 +52,7 @@ namespace OrderProcessWeb.Controllers
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login", "Users");
+            return RedirectToAction("Login", "Login");
         }
 
         [HttpGet]

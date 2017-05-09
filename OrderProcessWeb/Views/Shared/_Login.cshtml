@@ -1,12 +1,12 @@
 ﻿@if (Request.IsAuthenticated)
 {
     <ul class="nav navbar-nav navbar-left">
-        @*<li>@Html.ActionLink("Home", "Home", "Home")</li>
-        <li>@Html.ActionLink("Photos", "Photos", "Photos")</li>
+        <li>@Html.ActionLink("Home", "Home", "Home")</li>
+        @*<li>@Html.ActionLink("Photos", "Photos", "Photos")</li>
         <li>@Html.ActionLink("Search", "Search", "Search")</li>*@
     </ul>
 
-    using (Html.BeginForm("Logoff", "Users", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("Logoff", "Login", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
         <ul class="nav navbar-nav navbar-right">
@@ -21,8 +21,8 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Users", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Users", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Login", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Login", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
 
