@@ -1,0 +1,38 @@
+﻿@model OrderProcessWeb.ViewModels.RequestViewModel
+
+
+@Html.AntiForgeryToken()
+<h2>Request</h2>
+<hr />
+
+<div class="form-group">
+    @foreach (var item in Model.RequestMerchandises)
+    {
+        <div style="margin-bottom: 2%">
+            <dl class="dl-horizontal">
+                <dt>Merchandise:</dt>
+                <dd>@item.Merchandise.Name</dd>
+                <dt>Price:</dt>
+                <dd>@item.Merchandise.Price $</dd>
+                <dt>Ampunt:</dt>
+                <dd>@item.Amount</dd>
+            </dl>
+        </div>
+    }
+    <div style="margin-bottom: 10%">
+        <dl class="dl-horizontal">
+            <dt>Additional info:</dt>
+            @if (@Model.AdditionalInfo != "")
+            {
+                <dd>@Model.AdditionalInfo</dd>
+            }
+            else
+            {
+                <dd>-</dd>
+            }
+        </dl>
+    </div>
+
+</div>
+
+

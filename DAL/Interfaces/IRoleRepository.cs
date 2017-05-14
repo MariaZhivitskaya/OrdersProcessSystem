@@ -6,6 +6,6 @@ namespace DAL.Interfaces
     public interface IRoleRepository
     {
         IEnumerable<DalRole> GetAllRoles();
-        DalRole GetById(int? roleId);
+        DalRole GetRole(int id);
     }
 }

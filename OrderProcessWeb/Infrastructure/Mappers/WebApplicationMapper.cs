@@ -15,5 +15,14 @@ namespace OrderProcessWeb.Infrastructure.Mappers
               Name = userViewModel.Name,
               RoleId = userViewModel.RoleId
           };
+
+        public static MerchandiseViewModel ToMerchandiseViewModel(this MerchandiseEntity merchandiseEntity) =>
+         new MerchandiseViewModel()
+         {
+             Id = merchandiseEntity.Id,
+             Amount = merchandiseEntity.Amount,
+             Name = merchandiseEntity.Name,
+             Price = merchandiseEntity.Price
+         };
     }
 }

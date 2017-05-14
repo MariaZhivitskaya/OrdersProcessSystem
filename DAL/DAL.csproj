@@ -49,13 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DalMerchandise.cs" />
+    <Compile Include="DTO\DalOrder.cs" />
+    <Compile Include="DTO\DalRequest.cs" />
+    <Compile Include="DTO\DalRequestMerchandise.cs" />
     <Compile Include="DTO\DalRole.cs" />
     <Compile Include="DTO\DalUser.cs" />
+    <Compile Include="Interfaces\IMerchandiseRepository.cs" />
+    <Compile Include="Interfaces\IOrderRepository.cs" />
+    <Compile Include="Interfaces\IRequestMerchandiseRepository.cs" />
+    <Compile Include="Interfaces\IRequestRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Mappers\Mappers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MerchandiseRepository.cs" />
+    <Compile Include="Repositories\RequestMerchndiseRepository.cs" />
+    <Compile Include="Repositories\RequestRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRepository.cs" />

@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using DAL.DTO;
 using DAL.Interfaces;
+using DAL.Mappers;
 using ORM;
 
 namespace DAL.Repositories
@@ -26,14 +27,9 @@ namespace DAL.Repositories
             });
         }
 
-        public DalRole GetById(int? roleId)
+        public DalRole GetRole(int id)
         {
-            var getRole = _context.Set<Role>().FirstOrDefault(role => role.Id == roleId);
-            return new DalRole()
-            {
-                Id = getRole.Id,
-                Description = getRole.Description
-            };
+            return _context.Set<Role>().FirstOrDefault(role => role.Id == id).ToDalRole();
         }
     }
 }

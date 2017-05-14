@@ -5,6 +5,7 @@ namespace BLL.Interfaces
 {
     public interface IRoleService
     {
-        IEnumerable<RoleEntity> GetAllRoleEntities();
+        IEnumerable<RoleEntity> GetAllRoles();
+        RoleEntity GetRole(int id);
     }
 }

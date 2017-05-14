@@ -30,9 +30,15 @@ namespace DependencyResolver
 
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IRoleService>().To<RoleService>();
+            kernel.Bind<IMerchandiseService>().To<MerchandiseService>();
+            kernel.Bind<IRequestService>().To<RequestService>();
+            kernel.Bind<IRequestMerchandiseService>().To<RequestMerchandiseService>();
 
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IRoleRepository>().To<RoleRepository>();
+            kernel.Bind<IMerchandiseRepository>().To<MerchandiseRepository>();
+            kernel.Bind<IRequestRepository>().To<RequestRepository>();
+            kernel.Bind<IRequestMerchandiseRepository>().To<RequestMerchndiseRepository>();
         }
     }
 }

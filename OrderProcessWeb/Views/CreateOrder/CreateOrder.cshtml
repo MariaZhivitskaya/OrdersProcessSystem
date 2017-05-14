@@ -1,0 +1,44 @@
+﻿@model OrderProcessWeb.ViewModels.RequestListViewModel
+
+@{
+    ViewBag.Title = "Create order";
+}
+
+<div class="form-group" style="margin-top: 5%;">
+    <div class="row text-center">
+        <label>Select the request:</label>
+        @using (Html.BeginForm())
+        {
+            @Html.DropDownListFor(m => m.SelectedRequestNumber, Model.Requests, new { @id = "list" })
+        }
+    </div>
+    <div id="requestInfo"></div>
+    <div class="row text-center">
+        <input type="button" class="btn btn-primary" value="Select" onclick="func()" style="margin-top: 1%; margin-bottom: 2%">
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            getRequest();
+        });
+
+        $('select').change(function () {
+            getRequest();
+        });
+
+        function getRequest() {
+            var value = $('#list').val();
+            var url = '@Url.Action("GetRequest", "CreateOrder", new {selectedRequestId = -1})';
+            url = url.replace(-1, value);
+            $("#requestInfo").load(url);
+        }
+
+        function func() {
+           
+        }
+    </script>
+}

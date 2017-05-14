@@ -20,8 +20,6 @@ namespace OrderProcessWeb.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            //var type = HttpContext.User.GetType();
-            //var iden = HttpContext.User.Identity.GetType();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -35,8 +33,6 @@ namespace OrderProcessWeb.Controllers
             {
                 if (Membership.ValidateUser(viewModel.Login, viewModel.Password))
                 {
-                    //var user = userService.GetUserByLogin(viewModel.Login);
-
                     FormsAuthentication.SetAuthCookie(viewModel.Login, true);
                     if (Url.IsLocalUrl(returnUrl))
                     {

@@ -15,13 +15,24 @@
         <dt>Surname:</dt>
         <dd>@Model.Surname</dd>
         <dt>Role:</dt>
-        <dd>
-           @Html.BeginForm("GetRole", "Home", new { roleId = @Model.RoleId }, FormMethod.Post, null)
-         </dd >
-
-        @*@if (Model.RoleId.Equals(1))
-        {
-            @Html.Action("Users", "Home")
-        }*@
+        <dd id="role"></dd>
     </dl>
 </div>
+
+<script>
+    $.ajax(
+        {
+            url: '/Home/GetRole',
+            type: 'POST',
+            success: function (data) {
+                $("#role").html(data.StringContent);
+            },
+            error: function () {
+                alert("error");
+            },
+            data: JSON.stringify({"roleId": @Model.RoleId}),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+
+        });
+</script>

@@ -5,6 +5,7 @@ using System.Web.Security;
 using BLL.Services;
 using OrderProcessWeb.Infrastructure.Mappers;
 using OrderProcessWeb.ViewModels;
+using ORM;
 
 namespace OrderProcessWeb.Providers
 {
@@ -14,9 +15,9 @@ namespace OrderProcessWeb.Providers
         public UserService UserService
             => (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
 
-        public BLL.Services.RoleService RoleService
-            => (BLL.Services.RoleService)System.Web.Mvc.DependencyResolver.
-            Current.GetService(typeof(BLL.Services.RoleService));
+        public RoleService RoleService
+            => (RoleService)System.Web.Mvc.DependencyResolver.
+            Current.GetService(typeof(RoleService));
 
         public MembershipUser CreateUser(string login, string password, string surname, string name)
         {
@@ -32,7 +33,7 @@ namespace OrderProcessWeb.Providers
                 Name = name
             };
 
-            var role = RoleService.GetAllRoleEntities().FirstOrDefault(r => r.Description == "User");
+            var role = RoleService.GetAllRoles().FirstOrDefault(r => r.Description == "User");
             if (role != null)
                 user.RoleId = role.Id;
 
@@ -52,6 +53,9 @@ namespace OrderProcessWeb.Providers
 
         public override MembershipUser GetUser(string username, bool userIsOnline)
         {
+            if (string.IsNullOrEmpty(username))
+                return null;
+
             var user = UserService.GetUserByLogin(username);
             if (user == null)
                 return null;

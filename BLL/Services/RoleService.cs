@@ -17,9 +17,14 @@ namespace BLL.Services
             _roleRepository = repository;
         }
 
-        public IEnumerable<RoleEntity> GetAllRoleEntities()
+        public IEnumerable<RoleEntity> GetAllRoles()
         {
             return _roleRepository.GetAllRoles().Select(role => role.ToBllRole());
+        }
+
+        public RoleEntity GetRole(int id)
+        {
+            return _roleRepository.GetRole(id).ToBllRole();
         }
     }
 }

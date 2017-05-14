@@ -40,12 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\MerchandiseEntity.cs" />
+    <Compile Include="Entities\RequestEntity.cs" />
+    <Compile Include="Entities\RequestMerchandiseEntity.cs" />
     <Compile Include="Entities\RoleEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Interfaces\IMerchandiseService.cs" />
+    <Compile Include="Interfaces\IRequestMerchandiseService.cs" />
+    <Compile Include="Interfaces\IRequestService.cs" />
     <Compile Include="Interfaces\IRoleService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Mappers\Mapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MerchandiseService.cs" />
+    <Compile Include="Services\RequestMerchandiseService.cs" />
+    <Compile Include="Services\RequestService.cs" />
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>

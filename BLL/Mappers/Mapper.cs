@@ -42,5 +42,37 @@ namespace BLL.Mappers
                 Description = dalRole.Description
             };
         }
+
+        public static MerchandiseEntity ToBllMerchandise(this DalMerchandise dalMerchandise)
+        {
+            return new MerchandiseEntity()
+            {
+                Id = dalMerchandise.Id,
+                Amount = dalMerchandise.Amount,
+                Name = dalMerchandise.Name,
+                Price = dalMerchandise.Price
+            };
+        }
+
+        public static RequestMerchandiseEntity ToBllRequestMerchandise(this DalRequestMerchandise dalRequestMerchandise)
+        {
+            return new RequestMerchandiseEntity()
+            {
+                Id = dalRequestMerchandise.Id,
+                MerchandiseId = dalRequestMerchandise.MerchandiseId,
+                Amount = dalRequestMerchandise.Amount,
+                UserId = dalRequestMerchandise.UserId,
+                RequestId = dalRequestMerchandise.RequestId
+            };
+        }
+
+        public static RequestEntity ToBllRequest(this DalRequest dalRequest)
+        {
+            return new RequestEntity()
+            {
+                Id = dalRequest.Id,
+                AdditionalInfo = dalRequest.AdditionalInfo
+            };
+        }
     }
 }

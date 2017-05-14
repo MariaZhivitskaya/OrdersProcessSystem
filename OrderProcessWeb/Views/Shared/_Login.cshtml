@@ -2,8 +2,8 @@
 {
     <ul class="nav navbar-nav navbar-left">
         <li>@Html.ActionLink("Home", "Home", "Home")</li>
-        @*<li>@Html.ActionLink("Photos", "Photos", "Photos")</li>
-        <li>@Html.ActionLink("Search", "Search", "Search")</li>*@
+        <li id="order" style="display: none">@Html.ActionLink("Create Order", "CreateOrder", "CreateOrder")</li>
+        <li id="request" style="display: none">@Html.ActionLink("Edit Request", "EditRequest", "Request")</li>
     </ul>
 
     using (Html.BeginForm("Logoff", "Login", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -26,3 +26,25 @@ else
     </ul>
 }
 
+<script type="text/javascript">
+    $.ajax(
+    {
+        url: '/Home/GetCurrentUserRole',
+        type: 'POST',
+        success: function (data) {
+            if (data.CurrentUserRole === "Clerk") {
+                $("#request").show();
+                $("#order").hide();
+            } else if (data.CurrentUserRole === "Salesman") {
+                $("#request").hide();
+                $("#order").show();
+            } else {
+                $("#order").hide();
+                $("#request").hide();
+            }
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+</script>
